@@ -3,6 +3,7 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/../src/bootstrap.php';
 
+use Ramsey\Uuid\Uuid;
 use pratilib\domain\entities\Specialite;
 use pratilib\domain\entities\Praticien;
 use pratilib\domain\entities\Structure;
@@ -10,7 +11,7 @@ use pratilib\domain\entities\MotifVisite;
 
 $specialiteRepository = $entityManager->getRepository(Specialite::class);
 $praticienRepository = $entityManager->getRepository(Praticien::class);
-$structureRepo = $entityManager->getRepository(Structure::class);
+$structureRepository = $entityManager->getRepository(Structure::class);
 $motifvisiteRepository = $entityManager->getRepository(MotifVisite::class);
 
 $specialiteID1 = $specialiteRepository->find(1);
@@ -70,7 +71,7 @@ else {
 }
 
 
-$structure = $structureRepo->find('3444bdd2-8783-3aed-9a5e-4d298d2a2d7c');
+$structure = $structureRepository->find('3444bdd2-8783-3aed-9a5e-4d298d2a2d7c');
 echo "<br>-----------------------<br>";
 echo "4) <br>";
 if ($structure) {
@@ -140,28 +141,23 @@ echo "<br>-----------------------<br>";
 echo "7) <br>";
 echo "<h3> Création d'un nouveau praticien </h3>";
 
-$pediatrie = $specialiteRepository->findOneBy(['libelle' => 'Pédiatrie']);
-$structure = $structureRepository->find('3444bdd2-8783-3aed-9a5e-4d298d2a2d7c');
+$pediatrie = $specialiteRepository->findOneBy(['libelle' => 'pédiatrie']);
 
-if (!$structure) {
-    die("Erreur : Impossible de créer le praticien car aucune structure n'a été trouvée avec cet ID.");
-}
-
-$nouveauId = uniqid('prat_'); 
-
+$nouveauId = Uuid::uuid4()->toString();
+echo "Nouveau ID généré pour le praticien : " . $nouveauId . "<br>";
 $nouveauPraticien = new Praticien(
-    $nouveauId,
-    "Martin",
-    "1010101010",
-    "Alice",
-    "Dr.",
-    "Nancy",
-    "alice.martin@test.fr",
-    "0606060606",
-    false,
-    true,
-    $pediatrie,
-    $structure
+    id: $nouveauId,
+    nom: "Martin",
+    rpps_id: "1010101010",
+    prenom: "Alice",
+    titre: "Dr.",
+    ville: "Nancy",
+    email: "alice.martin@test.fr",
+    telephone: "0606060606",
+    organisation: "0",
+    accepte_nouveau_patient: "1",
+    specialite: $pediatrie,
+    structure: null
 );
 
 $entityManager->persist($nouveauPraticien);

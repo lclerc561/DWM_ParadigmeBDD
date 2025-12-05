@@ -12,8 +12,8 @@ class Praticien
     public string $ville;
     public string $email;
     public string $telephone;
-    public bool $organisation;
-    public bool $accepte_nouveau_patient;
+    public string $organisation;
+    public string $accepte_nouveau_patient;
     public ?Specialite $specialite = null;
     public ?Structure $structure = null;
     public Collection $motifs;
@@ -29,10 +29,10 @@ class Praticien
         string $ville, 
         string $email, 
         string $telephone,
-        bool $organisation,
-        bool $accepte_nouveau_patient,
-        Specialite $specialite,
-        Structure $structure
+        string $organisation,
+        string $accepte_nouveau_patient,
+        ?Specialite $specialite,
+        ?Structure $structure
     ) {
         $this->id = $id;
         $this->nom = $nom;
@@ -88,12 +88,12 @@ class Praticien
         return $this->telephone;
     }
 
-    public function isOrganisation(): bool
+    public function isOrganisation(): string
     {
         return $this->organisation;
     }
 
-    public function isAccepteNouveauPatient(): bool
+    public function isAccepteNouveauPatient(): string
     {
         return $this->accepte_nouveau_patient;
     }

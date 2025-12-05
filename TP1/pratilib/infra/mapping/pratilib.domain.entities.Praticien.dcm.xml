@@ -7,9 +7,9 @@
     <entity name="pratilib\domain\entities\Praticien" table="praticien">
         
         <id name="id" column="id" type="string">
-            <generator strategy="IDENTITY"/>
+            <generator strategy="NONE"/>
         </id>
-
+        
         <field name="nom" column="nom" type="string" />
         <field name="rpps_id" column="rpps_id" type="string" />
         <field name="prenom" column="prenom" type="string" />
@@ -17,8 +17,8 @@
         <field name="ville" column="ville" type="string" />
         <field name="email" column="email" type="string" />
         <field name="telephone" column="telephone" type="string" />
-        <field name="organisation" column="organisation" type="boolean" />
-        <field name="accepte_nouveau_patient" column="nouveau_patient" type="boolean" />
+        <field name="organisation" column="organisation" type="string" length="1" />
+        <field name="accepte_nouveau_patient" column="nouveau_patient" type="string" length="1" />
         
         <many-to-one field="specialite" target-entity="pratilib\domain\entities\Specialite">
             <join-column name="specialite_id" referenced-column-name="id" />

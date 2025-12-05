@@ -7,7 +7,7 @@ use Doctrine\ORM\ORMSetup;
 require_once __DIR__ . '/../vendor/autoload.php';
 
 $config = ORMSetup::createXMLMetadataConfiguration(
-    paths: [__DIR__ . "/../src/infra/mapping"],
+    paths: [__DIR__ . "/../infra/mapping"],
     isDevMode: true,
 );
 
