@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                        https://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="pratilib\domain\entities\Structure" table="structure">
+        
+        <id name="id" column="id" type="string">
+            <generator strategy="IDENTITY"/>
+        </id>
+
+        <field name="nom" column="nom" type="string" />
+        <field name="adresse" column="adresse" type="string" />
+        <field name="ville" column="ville" type="string" />
+        <field name="code_postal" column="code_postal" type="string" />
+        <field name="telephone" column="telephone" type="string" />
+        <one-to-many field="praticiens" target-entity="pratilib\domain\entities\Praticien" mapped-by="structure" />
+    </entity>
+</doctrine-mapping>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                        https://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="pratilib\domain\entities\MotifVisite" table="motif_visite">
+        
+        <id name="id" column="id" type="string">
+            <generator strategy="IDENTITY"/>
+        </id>
+
+        <field name="libelle" column="libelle" type="string" />
+        
+        <many-to-one field="specialite" target-entity="pratilib\domain\entities\Specialite">
+            <join-column name="specialite_id" referenced-column-name="id" />
+        </many-to-one>
+        
+    </entity>
+</doctrine-mapping>
