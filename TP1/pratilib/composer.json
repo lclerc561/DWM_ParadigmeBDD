@@ -19,7 +19,8 @@
   },
   "autoload": {
     "psr-4" : {
-      "pratilib\\" : "./src/"
+      "pratilib\\" : "./src/",
+      "pratilib\\infra\\":"./infra/"
     }
   }
 }

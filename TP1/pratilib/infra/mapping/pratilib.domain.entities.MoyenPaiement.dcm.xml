@@ -4,15 +4,14 @@
     xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                         https://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <entity name="pratilib\domain\entities\Specialite" table="specialite" repository-class="pratilib\infra\repositories\SpecialiteRepository">
+    <entity name="pratilib\domain\entities\MoyenPaiement" table="moyen_paiement">
         
         <id name="id" column="id" type="integer">
             <generator strategy="IDENTITY"/>
         </id>
 
         <field name="libelle" column="libelle" type="string" />
-        <field name="description" column="description" type="string" nullable="true" />
-        <one-to-many field="praticiens" target-entity="pratilib\domain\entities\Praticien" mapped-by="specialite" />
-        <one-to-many field="motifs" target-entity="pratilib\domain\entities\MotifVisite" mapped-by="specialite" />        
+        
     </entity>
+
 </doctrine-mapping>

@@ -200,10 +200,94 @@ echo "Praticien: " . $praticien->getNom() . " " . $praticien->getPrenom();
 
 echo "<br>-----------------------<br>";
 echo "2) <br>";
-$praticien = $praticienRepository->findOneBy(["nom" => "Goncalves"],["ville" => "Paris"]);
+$praticien = $praticienRepository->findOneBy(["nom" => "Goncalves" ,"ville" => "Paris"]);
 echo "Praticien: " . $praticien->getNom() . " " . $praticien->getPrenom();
 
 echo "<br>-----------------------<br>";
 echo "3) <br>";
 $specialite = $specialiteRepository->findOneBy(["libelle" => "pédiatrie"]);
-echo $specialite->getLibelle() . " " . $specialite->getMotifVisite();
+echo "spécialité:" . $specialite->getLibelle();
+
+echo "<br>-----------------------<br>";
+echo "4) <br>";
+echo "Structures contenant 'santé' (via critère) :<br>";
+
+
+$structure = $structureRepository->matching(Criteria::create()
+    ->where(Criteria::expr()->contains('nom', 'Santé')));
+
+if (count($structure) > 0) {
+    echo "<ul>";
+    foreach ($structure as $struct) {
+        echo "<li>" . $struct->getNom() . " (" . $struct->getVille() . ")</li>";
+    }
+    echo "</ul>";
+} else {
+    echo "Aucune structure ne contient le mot 'Santé' dans son nom.<br>";
+}
+
+echo "<br>-----------------------<br>";
+echo "5) <br>";
+echo "Praticiens 'ophtalmologie' à Paris :<br>";
+
+$specialite = $specialiteRepository->findOneBy(['libelle' => 'ophtalmologie']);
+
+if ($specialite) {
+    $praticien = $praticienRepository->matching(Criteria::create()
+        ->Where(Criteria::expr()->eq('specialite', $specialite))
+        ->andWhere(Criteria::expr()->eq('ville', 'Paris')));
+
+    if (count($praticien) > 0) {
+        echo "<ul>";
+        foreach ($praticien as $praticien) {
+            echo "<li>Dr. " . $praticien->getNom() . " " . $praticien->getPrenom() . "</li>";
+        }
+        echo "</ul>";
+    } else {
+        echo "Aucun ophtalmologue trouvé à Paris.<br>";
+    }
+} else {
+    echo "La spécialité 'ophtalmologie' n'existe pas dans la base.<br>";
+}
+
+echo "<br>-----------------------<br>";
+echo"<br>";
+echo "Excercice 3 <br>";
+
+
+echo "<b>1) Spécialités contenant 'médecine' ou 'chirurgie' :</b><br>";
+$resultats = $specialiteRepository->findByMotCle('chirurgie');
+
+if (count($resultats) > 0) {
+    foreach ($resultats as $spe) {
+        echo "- " . $spe->getLibelle() . "<br>";
+    }
+} else {
+    echo "Aucune spécialité trouvée.<br>";
+}
+
+echo "<br>-----------------------<br>";
+
+echo "<b>2) Praticiens dont la spécialité contient 'dent' :</b><br>";
+$praticiens = $praticienRepository->findBySpecialiteMotCle('dent');
+
+if (count($praticiens) > 0) {
+    foreach ($praticiens as $p) {
+        $libelleSpe = $p->getSpecialite() ? $p->getSpecialite()->getLibelle() : 'Aucune';
+        echo "- Dr. " . $p->getNom() . " (" . $libelleSpe . ")<br>";
+    }
+} else {
+    echo "Aucun praticien trouvé.<br>";
+}
+echo "<br>-----------------------<br>";
+echo "<b>3) Praticiens 'médecine générale' acceptant 'chèque' :</b><br>";
+
+$praticiensPaiement = $praticienRepository->findBySpecialiteAndPaiement('médecine générale', 'chèque');
+
+if (count($praticiensPaiement) > 0) {
+    foreach ($praticiensPaiement as $p) {
+        echo "- Dr. " . $p->getNom() . " " . $p->getPrenom() . "<br>";
+    }
+} else {
+    echo "Aucun praticien trouvé pour ces critères.<br>";
+}
