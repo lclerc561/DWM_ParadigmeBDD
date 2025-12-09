@@ -3,6 +3,7 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/../src/bootstrap.php';
 
+use Doctrine\Common\Collections\Criteria;
 use Ramsey\Uuid\Uuid;
 use pratilib\domain\entities\Specialite;
 use pratilib\domain\entities\Praticien;
@@ -37,7 +38,7 @@ if ($praticienID1) {
     echo "Ville: " . $praticienID1->getVille() . "<br>";
     echo "Email: " . $praticienID1->getEmail() . "<br>";
     echo "Téléphone: " . $praticienID1->getTelephone() . "<br>";
-    
+
 } else {
     echo "Praticien avec l'ID 8ae1400f-d46d-3b50-b356-269f776be532 non trouvé.";
 }
@@ -54,9 +55,9 @@ if ($praticienID1) {
     } else {
         echo "Le praticien n'a pas de spécialité associée.<br>";
     }
-    echo"<br>";
+    echo "<br>";
     $structure = $praticienID1->getStructure();
-    if ($structure){
+    if ($structure) {
         echo "Structure d'un praticien:<br>";
         echo "ID: " . $structure->getId() . "<br>";
         echo "Nom: " . $structure->getNom() . "<br>";
@@ -65,8 +66,7 @@ if ($praticienID1) {
         echo "Code Postal: " . $structure->getCodePostal() . "<br>";
         echo "Téléphone: " . $structure->getTelephone() . "<br>";
     }
-}
-else {
+} else {
     echo "Praticien avec l'ID 8ae1400f-d46d-3b50-b356-269f776be532 non trouvé.";
 }
 
@@ -90,8 +90,7 @@ if ($structure) {
             echo "<li>" . $praticien->getNom() . " " . $praticien->getPrenom() . " (" . $praticien->getSpecialite()->getLibelle() . ")</li>";
         }
         echo "</ul>";
-    } 
-    else {
+    } else {
         echo "Aucun praticien rattaché.<br>";
     }
 } else {
@@ -100,20 +99,19 @@ if ($structure) {
 
 echo "<br>-----------------------<br>";
 echo "5) <br>";
-if($specialiteID1){
+if ($specialiteID1) {
     echo "Motifs de visite pour la spécialité ID 1:<br>";
     $motifs = $specialiteID1->getMotifVisite();
 
     if (count($motifs) > 0) {
         foreach ($motifs as $motif) {
-            echo "<li>". $motif->getLibelle() . "</li>";
+            echo "<li>" . $motif->getLibelle() . "</li>";
         }
         echo "</ul>";
     } else {
         echo "Aucun motif de visite pour cette spécialité.<br>";
     }
-}
-else{
+} else {
     echo "Spécialité avec l'ID 1 non trouvée.";
 }
 
@@ -121,7 +119,7 @@ echo "<br>-----------------------<br>";
 echo "6) <br>";
 if ($praticienID1) {
     echo "Liste des motifs pour le praticien " . $praticienID1->getNom() . " :<br>";
-    
+
     $lesMotifs = $praticienID1->getMotifs();
 
     if (count($lesMotifs) > 0) {
@@ -168,3 +166,44 @@ try {
 } catch (Exception $e) {
     echo "Erreur lors de l'enregistrement : " . $e->getMessage();
 }
+
+echo "<br>-----------------------<br>";
+echo "8) <br>";
+$nouveauPraticien->setVille("Paris");
+$structure = $structureRepository->findOneBy(['nom' => 'Cabinet Bigot']);
+if ($structure) {
+    $nouveauPraticien->AddToStructure($structure);
+    $entityManager->flush();
+    echo "Modification réussie";
+} else {
+    echo "Structure introuvable";
+}
+
+echo "<br>-----------------------<br>";
+echo "9) <br>";
+
+try {
+    $entityManager->remove($nouveauPraticien);
+    $entityManager->flush();
+    echo "Supression de l'utilisateur réussie";
+
+} catch (Exception $e) {
+
+}
+
+echo "<br>-----------------------<br>";
+echo"<br>";
+echo "Excercice 2 <br>";
+echo "1) <br>";
+$praticien = $praticienRepository->findOneBy(["email" => "Gabrielle.Klein@live.com"]);
+echo "Praticien: " . $praticien->getNom() . " " . $praticien->getPrenom();
+
+echo "<br>-----------------------<br>";
+echo "2) <br>";
+$praticien = $praticienRepository->findOneBy(["nom" => "Goncalves"],["ville" => "Paris"]);
+echo "Praticien: " . $praticien->getNom() . " " . $praticien->getPrenom();
+
+echo "<br>-----------------------<br>";
+echo "3) <br>";
+$specialite = $specialiteRepository->findOneBy(["libelle" => "pédiatrie"]);
+echo $specialite->getLibelle() . " " . $specialite->getMotifVisite();

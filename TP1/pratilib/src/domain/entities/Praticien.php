@@ -118,4 +118,14 @@ class Praticien
         $this->id = $id;
     }
 
+    public function setVille(string $ville): void
+    {
+        $this->ville = $ville;
+    }
+
+    public function AddToStructure(Structure $structure): void
+    {
+        $this->structure = $structure;
+    }
+
 }
