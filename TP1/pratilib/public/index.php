@@ -256,7 +256,10 @@ echo "Excercice 3 <br>";
 
 
 echo "<b>1) Spécialités contenant 'médecine' ou 'chirurgie' :</b><br>";
-$resultats = $specialiteRepository->findByMotCle('chirurgie');
+$resultat1 = $specialiteRepository->findByMotCle('médecine');
+$resultat2 = $specialiteRepository->findByMotCle('chirurgie');
+$resultats = array_merge($resultat1, $resultat2);
+$resultats = array_unique($resultats, SORT_REGULAR);
 
 if (count($resultats) > 0) {
     foreach ($resultats as $spe) {
