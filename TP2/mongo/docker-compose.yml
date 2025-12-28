@@ -11,12 +11,14 @@ services:
         dockerfile: 8.3-cli.Dockerfile
     ports:
       - "12080:80"
-      - "12443:443"
+      # Le port 443 n'est pas strictement nécessaire pour ce TD sauf si vous faites du SSL, mais on le garde
+      - "12443:443" 
     volumes:
       - ./app:/var/php
     working_dir: /var/php
     networks:
       - catamongo.net
+    # On utilise le serveur interne de PHP comme demandé
     command: php -S 0.0.0.0:80 -t /var/php/public
 
   ################################################
@@ -25,17 +27,21 @@ services:
   mongo:
     image: mongo:latest
     volumes:
-    - ./data:/var/data
+      - ./data:/var/data
     working_dir: /var/data
     networks:
-    - catamongo.net
+      - catamongo.net
     ports:
-    - 27017:27017
+      - "27017:27017"
+    command: --dbpath /var/data
 
   mongo-express:
     image: mongo-express:latest
     networks:
-    - catamongo.net
+      - catamongo.net
     ports:
-    - "8081:8081"
-
+      - "8081:8081"
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=mongo
+      - ME_CONFIG_MONGODB_PORT=27017
+      - ME_CONFIG_BASICAUTH=false
