@@ -1,0 +1,1737 @@
+version: 1
+directus: 11.14.0
+vendor: postgres
+collections:
+  - collection: MotifVisite
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: MotifVisite
+      color: null
+      display_template: null
+      group: null
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: MotifVisite
+  - collection: MoyenPaiement
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: MoyenPaiement
+      color: null
+      display_template: null
+      group: null
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: MoyenPaiement
+  - collection: Praticien
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: Praticien
+      color: null
+      display_template: null
+      group: null
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: Praticien
+  - collection: Specialite
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: Specialite
+      color: null
+      display_template: null
+      group: null
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: Specialite
+  - collection: Structure
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: Structure
+      color: null
+      display_template: null
+      group: null
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: Structure
+  - collection: praticien2motif
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: praticien2motif
+      color: null
+      display_template: null
+      group: null
+      hidden: false
+      icon: import_export
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: praticien2motif
+  - collection: praticien2moyen
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: praticien2moyen
+      color: null
+      display_template: null
+      group: null
+      hidden: false
+      icon: import_export
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: praticien2moyen
+fields:
+  - collection: MotifVisite
+    field: id
+    type: integer
+    meta:
+      collection: MotifVisite
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      searchable: true
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: MotifVisite
+      data_type: integer
+      default_value: nextval('"MotifVisite_id_seq"'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_indexed: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: MotifVisite
+    field: libelle
+    type: string
+    meta:
+      collection: MotifVisite
+      conditions: null
+      display: null
+      display_options: null
+      field: libelle
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      searchable: true
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: libelle
+      table: MotifVisite
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: MotifVisite
+    field: specialite
+    type: integer
+    meta:
+      collection: MotifVisite
+      conditions: null
+      display: null
+      display_options: null
+      field: specialite
+      group: null
+      hidden: false
+      interface: select-dropdown-m2o
+      note: null
+      options: null
+      readonly: false
+      required: false
+      searchable: true
+      sort: 3
+      special:
+        - m2o
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: specialite
+      table: MotifVisite
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: Specialite
+      foreign_key_column: id
+  - collection: MotifVisite
+    field: praticien
+    type: alias
+    meta:
+      collection: MotifVisite
+      conditions: null
+      display: null
+      display_options: null
+      field: praticien
+      group: null
+      hidden: false
+      interface: list-m2m
+      note: null
+      options: null
+      readonly: false
+      required: false
+      searchable: true
+      sort: 4
+      special:
+        - m2m
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: MoyenPaiement
+    field: id
+    type: integer
+    meta:
+      collection: MoyenPaiement
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      searchable: true
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: MoyenPaiement
+      data_type: integer
+      default_value: nextval('"MoyenPaiement_id_seq"'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_indexed: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: MoyenPaiement
+    field: libelle
+    type: string
+    meta:
+      collection: MoyenPaiement
+      conditions: null
+      display: null
+      display_options: null
+      field: libelle
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      searchable: true
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: libelle
+      table: MoyenPaiement
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: Praticien
+    field: id
+    type: uuid
+    meta:
+      collection: Praticien
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      searchable: true
+      sort: 1
+      special:
+        - uuid
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: Praticien
+      data_type: uuid
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: false
+      is_unique: true
+      is_indexed: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: Praticien
+    field: nom
+    type: string
+    meta:
+      collection: Praticien
+      conditions: null
+      display: null
+      display_options: null
+      field: nom
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      searchable: true
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: nom
+      table: Praticien
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: Praticien
+    field: prenom
+    type: string
+    meta:
+      collection: Praticien
+      conditions: null
+      display: null
+      display_options: null
+      field: prenom
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      searchable: true
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: prenom
+      table: Praticien
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: Praticien
+    field: email
+    type: string
+    meta:
+      collection: Praticien
+      conditions: null
+      display: null
+      display_options: null
+      field: email
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      searchable: true
+      sort: 4
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: email
+      table: Praticien
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: Praticien
+    field: telephone
+    type: string
+    meta:
+      collection: Praticien
+      conditions: null
+      display: null
+      display_options: null
+      field: telephone
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      searchable: true
+      sort: 5
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: telephone
+      table: Praticien
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: Praticien
+    field: ville
+    type: string
+    meta:
+      collection: Praticien
+      conditions: null
+      display: null
+      display_options: null
+      field: ville
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      searchable: true
+      sort: 6
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: ville
+      table: Praticien
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: Praticien
+    field: rpps_id
+    type: string
+    meta:
+      collection: Praticien
+      conditions: null
+      display: null
+      display_options: null
+      field: rpps_id
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      searchable: true
+      sort: 7
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: rpps_id
+      table: Praticien
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: Praticien
+    field: titre
+    type: string
+    meta:
+      collection: Praticien
+      conditions: null
+      display: null
+      display_options: null
+      field: titre
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      searchable: true
+      sort: 8
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: titre
+      table: Praticien
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: Praticien
+    field: organisation
+    type: boolean
+    meta:
+      collection: Praticien
+      conditions: null
+      display: null
+      display_options: null
+      field: organisation
+      group: null
+      hidden: false
+      interface: boolean
+      note: null
+      options: null
+      readonly: false
+      required: false
+      searchable: true
+      sort: 9
+      special:
+        - cast-boolean
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: organisation
+      table: Praticien
+      data_type: boolean
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: Praticien
+    field: accepte_nouveau_patient
+    type: boolean
+    meta:
+      collection: Praticien
+      conditions: null
+      display: null
+      display_options: null
+      field: accepte_nouveau_patient
+      group: null
+      hidden: false
+      interface: boolean
+      note: null
+      options: null
+      readonly: false
+      required: false
+      searchable: true
+      sort: 10
+      special:
+        - cast-boolean
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: accepte_nouveau_patient
+      table: Praticien
+      data_type: boolean
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: Praticien
+    field: specialite
+    type: integer
+    meta:
+      collection: Praticien
+      conditions: null
+      display: null
+      display_options: null
+      field: specialite
+      group: null
+      hidden: false
+      interface: select-dropdown-m2o
+      note: null
+      options: null
+      readonly: false
+      required: false
+      searchable: true
+      sort: 11
+      special:
+        - m2o
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: specialite
+      table: Praticien
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: Specialite
+      foreign_key_column: id
+  - collection: Praticien
+    field: structure
+    type: uuid
+    meta:
+      collection: Praticien
+      conditions: null
+      display: null
+      display_options: null
+      field: structure
+      group: null
+      hidden: false
+      interface: select-dropdown-m2o
+      note: null
+      options: null
+      readonly: false
+      required: false
+      searchable: true
+      sort: 12
+      special:
+        - m2o
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: structure
+      table: Praticien
+      data_type: uuid
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: Structure
+      foreign_key_column: id
+  - collection: Praticien
+    field: motif_visite
+    type: alias
+    meta:
+      collection: Praticien
+      conditions: null
+      display: null
+      display_options: null
+      field: motif_visite
+      group: null
+      hidden: false
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      searchable: true
+      sort: 14
+      special:
+        - m2m
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: Praticien
+    field: praticien2moyen
+    type: alias
+    meta:
+      collection: Praticien
+      conditions: null
+      display: null
+      display_options: null
+      field: praticien2moyen
+      group: null
+      hidden: false
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      searchable: true
+      sort: 15
+      special:
+        - m2m
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: Specialite
+    field: id
+    type: integer
+    meta:
+      collection: Specialite
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      searchable: true
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: Specialite
+      data_type: integer
+      default_value: nextval('"Specialite_id_seq"'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_indexed: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: Specialite
+    field: libelle
+    type: string
+    meta:
+      collection: Specialite
+      conditions: null
+      display: null
+      display_options: null
+      field: libelle
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      searchable: true
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: libelle
+      table: Specialite
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: Specialite
+    field: description
+    type: text
+    meta:
+      collection: Specialite
+      conditions: null
+      display: null
+      display_options: null
+      field: description
+      group: null
+      hidden: false
+      interface: input-multiline
+      note: null
+      options: null
+      readonly: false
+      required: false
+      searchable: true
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: description
+      table: Specialite
+      data_type: text
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: Specialite
+    field: motifs
+    type: alias
+    meta:
+      collection: Specialite
+      conditions: null
+      display: null
+      display_options: null
+      field: motifs
+      group: null
+      hidden: false
+      interface: list-o2m
+      note: null
+      options: null
+      readonly: false
+      required: false
+      searchable: true
+      sort: 4
+      special:
+        - o2m
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: Structure
+    field: id
+    type: uuid
+    meta:
+      collection: Structure
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      searchable: true
+      sort: 1
+      special:
+        - uuid
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: Structure
+      data_type: uuid
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: false
+      is_unique: true
+      is_indexed: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: Structure
+    field: nom
+    type: string
+    meta:
+      collection: Structure
+      conditions: null
+      display: null
+      display_options: null
+      field: nom
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      searchable: true
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: nom
+      table: Structure
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: Structure
+    field: adresse
+    type: string
+    meta:
+      collection: Structure
+      conditions: null
+      display: null
+      display_options: null
+      field: adresse
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      searchable: true
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: adresse
+      table: Structure
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: Structure
+    field: ville
+    type: string
+    meta:
+      collection: Structure
+      conditions: null
+      display: null
+      display_options: null
+      field: ville
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      searchable: true
+      sort: 4
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: ville
+      table: Structure
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: Structure
+    field: code_postal
+    type: string
+    meta:
+      collection: Structure
+      conditions: null
+      display: null
+      display_options: null
+      field: code_postal
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      searchable: true
+      sort: 5
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: code_postal
+      table: Structure
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: Structure
+    field: telephone
+    type: string
+    meta:
+      collection: Structure
+      conditions: null
+      display: null
+      display_options: null
+      field: telephone
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      searchable: true
+      sort: 6
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: telephone
+      table: Structure
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: Structure
+    field: praticiens
+    type: alias
+    meta:
+      collection: Structure
+      conditions: null
+      display: null
+      display_options: null
+      field: praticiens
+      group: null
+      hidden: false
+      interface: list-o2m
+      note: null
+      options: null
+      readonly: false
+      required: false
+      searchable: true
+      sort: 7
+      special:
+        - o2m
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: praticien2motif
+    field: id
+    type: integer
+    meta:
+      collection: praticien2motif
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      searchable: true
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: praticien2motif
+      data_type: integer
+      default_value: nextval('praticien2motif_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_indexed: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: praticien2motif
+    field: praticien_id
+    type: uuid
+    meta:
+      collection: praticien2motif
+      conditions: null
+      display: null
+      display_options: null
+      field: praticien_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      searchable: true
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: praticien_id
+      table: praticien2motif
+      data_type: uuid
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: Praticien
+      foreign_key_column: id
+  - collection: praticien2motif
+    field: motif_id
+    type: integer
+    meta:
+      collection: praticien2motif
+      conditions: null
+      display: null
+      display_options: null
+      field: motif_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      searchable: true
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: motif_id
+      table: praticien2motif
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: MotifVisite
+      foreign_key_column: id
+  - collection: praticien2moyen
+    field: id
+    type: integer
+    meta:
+      collection: praticien2moyen
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      searchable: true
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: praticien2moyen
+      data_type: integer
+      default_value: nextval('praticien2moyen_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_indexed: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: praticien2moyen
+    field: praticien_id
+    type: uuid
+    meta:
+      collection: praticien2moyen
+      conditions: null
+      display: null
+      display_options: null
+      field: praticien_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      searchable: true
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: praticien_id
+      table: praticien2moyen
+      data_type: uuid
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: Praticien
+      foreign_key_column: id
+  - collection: praticien2moyen
+    field: moyen_id
+    type: integer
+    meta:
+      collection: praticien2moyen
+      conditions: null
+      display: null
+      display_options: null
+      field: moyen_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      searchable: true
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: moyen_id
+      table: praticien2moyen
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: MoyenPaiement
+      foreign_key_column: id
+systemFields:
+  - collection: directus_activity
+    field: timestamp
+    schema:
+      is_indexed: true
+  - collection: directus_revisions
+    field: parent
+    schema:
+      is_indexed: true
+relations:
+  - collection: MotifVisite
+    field: specialite
+    related_collection: Specialite
+    meta:
+      junction_field: null
+      many_collection: MotifVisite
+      many_field: specialite
+      one_allowed_collections: null
+      one_collection: Specialite
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: motifs
+      sort_field: null
+    schema:
+      table: MotifVisite
+      column: specialite
+      foreign_key_table: Specialite
+      foreign_key_column: id
+      constraint_name: motifvisite_specialite_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: Praticien
+    field: specialite
+    related_collection: Specialite
+    meta:
+      junction_field: null
+      many_collection: Praticien
+      many_field: specialite
+      one_allowed_collections: null
+      one_collection: Specialite
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: Praticien
+      column: specialite
+      foreign_key_table: Specialite
+      foreign_key_column: id
+      constraint_name: praticien_specialite_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: Praticien
+    field: structure
+    related_collection: Structure
+    meta:
+      junction_field: null
+      many_collection: Praticien
+      many_field: structure
+      one_allowed_collections: null
+      one_collection: Structure
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: praticiens
+      sort_field: null
+    schema:
+      table: Praticien
+      column: structure
+      foreign_key_table: Structure
+      foreign_key_column: id
+      constraint_name: praticien_structure_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: praticien2motif
+    field: motif_id
+    related_collection: MotifVisite
+    meta:
+      junction_field: praticien_id
+      many_collection: praticien2motif
+      many_field: motif_id
+      one_allowed_collections: null
+      one_collection: MotifVisite
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: praticien
+      sort_field: null
+    schema:
+      table: praticien2motif
+      column: motif_id
+      foreign_key_table: MotifVisite
+      foreign_key_column: id
+      constraint_name: praticien2motif_motif_id_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: praticien2motif
+    field: praticien_id
+    related_collection: Praticien
+    meta:
+      junction_field: motif_id
+      many_collection: praticien2motif
+      many_field: praticien_id
+      one_allowed_collections: null
+      one_collection: Praticien
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: motif_visite
+      sort_field: null
+    schema:
+      table: praticien2motif
+      column: praticien_id
+      foreign_key_table: Praticien
+      foreign_key_column: id
+      constraint_name: praticien2motif_praticien_id_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: praticien2moyen
+    field: moyen_id
+    related_collection: MoyenPaiement
+    meta:
+      junction_field: praticien_id
+      many_collection: praticien2moyen
+      many_field: moyen_id
+      one_allowed_collections: null
+      one_collection: MoyenPaiement
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: praticien2moyen
+      column: moyen_id
+      foreign_key_table: MoyenPaiement
+      foreign_key_column: id
+      constraint_name: praticien2moyen_moyen_id_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: praticien2moyen
+    field: praticien_id
+    related_collection: Praticien
+    meta:
+      junction_field: moyen_id
+      many_collection: praticien2moyen
+      many_field: praticien_id
+      one_allowed_collections: null
+      one_collection: Praticien
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: praticien2moyen
+      sort_field: null
+    schema:
+      table: praticien2moyen
+      column: praticien_id
+      foreign_key_table: Praticien
+      foreign_key_column: id
+      constraint_name: praticien2moyen_praticien_id_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
