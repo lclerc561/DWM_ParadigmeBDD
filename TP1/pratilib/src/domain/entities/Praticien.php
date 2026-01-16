@@ -17,12 +17,8 @@ class Praticien
     public string $telephone;
     public string $organisation;
     public string $accepte_nouveau_patient;
-    
-    // Relations
     public ?Specialite $specialite = null;
     public ?Structure $structure = null;
-    
-    // Collections (Initialisées dans le constructeur)
     public Collection $motifs;
     public Collection $moyensPaiement;
 
