@@ -188,7 +188,7 @@ try {
     echo "Supression de l'utilisateur réussie";
 
 } catch (Exception $e) {
-
+    echo "Erreur lors de la suppression : " . $e->getMessage();
 }
 
 echo "<br>-----------------------<br>";
