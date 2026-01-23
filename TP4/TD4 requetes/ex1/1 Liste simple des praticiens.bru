@@ -1,0 +1,28 @@
+meta {
+  name: 1 Liste simple des praticiens
+  type: graphql
+  seq: 1
+}
+
+get {
+  url: http://localhost:8055/graphql
+  body: graphql
+  auth: inherit
+}
+
+body:graphql {
+  query {
+    Praticien {
+      id
+      nom
+      prenom
+      telephone
+      ville
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

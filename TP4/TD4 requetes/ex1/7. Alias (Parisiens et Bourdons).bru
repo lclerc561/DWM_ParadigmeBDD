@@ -1,0 +1,29 @@
+meta {
+  name: 7. Alias (Parisiens et Bourdons)
+  type: graphql
+  seq: 7
+}
+
+get {
+  url: http://localhost:8055/graphql
+  body: graphql
+  auth: inherit
+}
+
+body:graphql {
+  query {
+    parisiens: Praticien(filter: { ville: { _eq: "Paris" } }) {
+      nom
+      ville
+    }
+    bourdons: Praticien(filter: { ville: { _eq: "Bourdon-les-Bains" } }) {
+      nom
+      ville
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

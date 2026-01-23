@@ -1,0 +1,25 @@
+meta {
+  name: 5. Filtre sur email (contient ".fr")
+  type: graphql
+  seq: 5
+}
+
+get {
+  url: http://localhost:8055/graphql
+  body: graphql
+  auth: inherit
+}
+
+body:graphql {
+  query {
+    Praticien(filter: { email: { _contains: ".fr" } }) {
+      nom
+      email
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

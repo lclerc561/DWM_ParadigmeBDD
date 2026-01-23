@@ -1,0 +1,24 @@
+meta {
+  name: 8. Supprimer plusieurs praticiens
+  type: graphql
+  seq: 8
+}
+
+get {
+  url: 
+  body: graphql
+  auth: inherit
+}
+
+body:graphql {
+  mutation {
+    delete_Praticien_items(ids: ["ID_PRATICIEN_1", "ID_PRATICIEN_2"]) {
+      ids
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

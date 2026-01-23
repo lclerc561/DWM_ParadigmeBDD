@@ -1,0 +1,32 @@
+meta {
+  name: 6. Ajout à la spécialité nouvellement créée
+  type: graphql
+  seq: 6
+}
+
+get {
+  url: 
+  body: graphql
+  auth: inherit
+}
+
+body:graphql {
+  mutation {
+    create_Praticien_item(data: {
+      nom: "Petit",
+      prenom: "Julie",
+      ville: "Nice",
+      specialite: {
+        id: 7
+      }
+    }) {
+      id
+      specialite { libelle }
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

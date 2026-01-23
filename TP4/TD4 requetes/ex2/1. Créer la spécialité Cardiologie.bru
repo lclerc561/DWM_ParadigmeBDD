@@ -1,0 +1,25 @@
+meta {
+  name: 1. Créer la spécialité Cardiologie
+  type: graphql
+  seq: 1
+}
+
+get {
+  url: http://localhost:8055/graphql/system
+  body: graphql
+  auth: inherit
+}
+
+body:graphql {
+  mutation {
+    create_Specialite_item(data: { libelle: "cardiologie" }) {
+      id
+      libelle
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

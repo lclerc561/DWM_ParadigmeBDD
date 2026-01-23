@@ -1,0 +1,29 @@
+meta {
+  name: 9. Utilisation de Variables
+  type: graphql
+  seq: 9
+}
+
+get {
+  url: http://localhost:8055/graphql
+  body: graphql
+  auth: inherit
+}
+
+body:graphql {
+  query GetPraticiensByVille($villeCherchee: String!) {
+    Praticien(filter: { ville: { _eq: $villeCherchee } }) {
+      nom
+      ville
+    }
+  }
+}
+
+body:graphql:vars {
+  {"villeCherchee": "Nancy"}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
